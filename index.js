@@ -14,6 +14,16 @@ export class Checklist extends SampleBase {
     //Map the appropriate columns to fields property
     this.fields = { groupBy: "category" };
   }
+
+  onSelect(args) {
+    if (args.isChecked) {
+      // checked event
+      console.log("checked");
+    } else {
+      // unchecked event
+      console.log("un checked");
+    }
+  }
   render() {
     return (
       <div className="control-pane">
@@ -24,6 +34,7 @@ export class Checklist extends SampleBase {
               id="sample-list-flat"
               dataSource={flatList}
               showCheckBox={true}
+              select={this.onSelect.bind(this)}
             />
           </div>
         </div>
